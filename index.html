@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta id="metaDescription" name="description" content="DOM WYPOCZYNKOWY ŻAK w Białce Tatrzańskiej – rodzinny wypoczynek, świetna lokalizacja, ogród, plac zabaw i blisko Term Bania." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:site_name" content="DOM WYPOCZYNKOWY ŻAK" />
+  <meta property="og:title" content="DOM WYPOCZYNKOWY ŻAK | Białka Tatrzańska" />
+  <meta property="og:description" content="Rodzinny wypoczynek w Białce Tatrzańskiej. Świetna lokalizacja, ogród, plac zabaw i blisko Term Bania." />
+  <meta property="og:image" content="photos/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DOM WYPOCZYNKOWY ŻAK | Białka Tatrzańska" />
+  <meta name="twitter:description" content="Rodzinny wypoczynek w Białce Tatrzańskiej. Świetna lokalizacja, ogród, plac zabaw i blisko Term Bania." />
+  <meta name="twitter:image" content="photos/logo.png" />
+  <title id="pageTitle">DOM WYPOCZYNKOWY ŻAK | Białka Tatrzańska</title>
+  <link rel="icon" type="image/x-icon" href="logo.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="#top" class="logo">
+        <img src="photos/logo-noBG.png" alt="Logo DOM WYPOCZYNKOWY ŻAK" class="logo-image" onerror="this.onerror=null;this.src='photos/logo.png';" />
+        <span data-i18n="logo_text">DOM WYPOCZYNKOWY ŻAK</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#o-obiekcie" data-i18n="nav_about">O obiekcie</a>
+        <a href="#udogodnienia" data-i18n="nav_amenities">Udogodnienia</a>
+        <a href="#galeria" data-i18n="nav_gallery">Galeria</a>
+        <a href="#opinie" data-i18n="nav_reviews">Opinie</a>
+        <a href="#lokalizacja" data-i18n="nav_location">Lokalizacja</a>
+        <a href="#kontakt" class="cta-link" data-i18n="nav_contact">Kontakt</a>
+      </nav>
+      <div class="header-tools">
+        <div class="language-switcher" role="group" aria-label="Przełącznik języka" data-i18n-aria-label="lang_switcher_aria">
+          <button type="button" class="lang-btn active" data-lang="pl" aria-pressed="true">PL</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" data-i18n-aria-label="menu_toggle_aria">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow" data-i18n="hero_eyebrow">Białka Tatrzańska, ul. Środkowa 242a</p>
+          <h1 data-i18n="hero_title">Rodzinny wypoczynek w sercu Podhala</h1>
+          <p class="lead" data-i18n="hero_lead">DOM WYPOCZYNKOWY ŻAK to wygodne miejsce na urlop blisko atrakcji, term i stoków. Goście cenią naszą lokalizację, czystość i przestrzeń dla dzieci.</p>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>8,9/10</strong>
+              <span data-i18n="hero_stat_1">Fantastyczny</span>
+            </div>
+            <div class="stat">
+              <strong>9,4/10</strong>
+              <span data-i18n="hero_stat_2">Lokalizacja</span>
+            </div>
+            <div class="stat">
+              <strong>76+</strong>
+              <span data-i18n="hero_stat_3">opinii gości</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontakt" data-i18n="hero_btn_book">Zarezerwuj pobyt</a>
+            <a class="btn btn-secondary" href="#lokalizacja" data-i18n="hero_btn_map">Pokaż mapę</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <img src="photos/logo-noBG.png" alt="Logo DOM WYPOCZYNKOWY ŻAK" class="hero-side-logo" onerror="this.onerror=null;this.src='photos/logo.png';" />
+          <div class="hero-card">
+            <h2 data-i18n="info_title">Najważniejsze informacje</h2>
+            <ul>
+              <li data-i18n="info_1">Termy Bania: 1,1 km</li>
+              <li data-i18n="info_2">Zamek w Niedzicy: 21 km</li>
+              <li data-i18n="info_3">PKP Zakopane: 23 km</li>
+              <li data-i18n="info_4">Bezpłatne Wi-Fi i parking</li>
+              <li data-i18n="info_5">Pokoje rodzinne i dla niepalących</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="o-obiekcie">
+      <div class="container">
+        <h2 data-i18n="about_title">O obiekcie</h2>
+        <p data-i18n="about_text">Obiekt położony jest w miejscowości Białka Tatrzańska, w regionie małopolskim. Oferuje bezpłatne Wi-Fi, plac zabaw, ogród oraz bezpłatny prywatny parking. Wybrane opcje zakwaterowania posiadają aneks kuchenny, prywatną łazienkę z wanną oraz balkon z widokiem na góry.</p>
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3 data-i18n="feature_1_title">Przestrzeń dla rodzin</h3>
+            <p data-i18n="feature_1_text">Duży ogród, plac zabaw, trampoliny, huśtawki i strefy relaksu.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-i18n="feature_2_title">Wygodna baza wypadowa</h3>
+            <p data-i18n="feature_2_text">Blisko term, stoku Kotelnica i lokalnych atrakcji Podhala.</p>
+          </article>
+          <article class="feature-card">
+            <h3 data-i18n="feature_3_title">Wspólna strefa pobytu</h3>
+            <p data-i18n="feature_3_text">Do dyspozycji gości wspólny salon oraz dobrze wyposażone kuchnie.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="udogodnienia">
+      <div class="container">
+        <h2 data-i18n="amenities_title">Najpopularniejsze udogodnienia</h2>
+        <div class="amenities">
+          <span data-i18n="amenity_1">Bezpłatny parking</span>
+          <span data-i18n="amenity_2">Pokoje rodzinne</span>
+          <span data-i18n="amenity_3">Bezpłatne Wi-Fi</span>
+          <span data-i18n="amenity_4">Narciarstwo</span>
+          <span data-i18n="amenity_5">Pokoje dla niepalących</span>
+          <span data-i18n="amenity_6">Sprzęt do grillowania</span>
+          <span data-i18n="amenity_7">Plac zabaw dla dzieci</span>
+          <span data-i18n="amenity_8">Wspólny salon</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="container">
+        <h2 data-i18n="gallery_title">Galeria obiektu</h2>
+        <p class="gallery-lead" data-i18n="gallery_lead">Zobacz zdjęcia DOM WYPOCZYNKOWY ŻAK i otoczenia.</p>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <div class="gallery-actions">
+          <button type="button" class="btn btn-secondary" id="galleryMoreBtn" data-i18n="gallery_more">Pokaż więcej</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="opinie">
+      <div class="container">
+        <h2 data-i18n="reviews_title">Co mówią goście</h2>
+        <div class="reviews-grid">
+          <blockquote>
+            <span data-i18n="review_1_text">„Bardzo mili gospodarze, zawsze pomocni. Cisza, spokój, wszędzie blisko. Dzieci zachwycone.”</span>
+            <cite data-i18n="review_1_author">Monika, Polska</cite>
+          </blockquote>
+          <blockquote>
+            <span data-i18n="review_2_text">„Zdjęcia nie oddają uroku obiektu. Świetlica dla dzieci, podwórko-bajka, trampolina i plac zabaw.”</span>
+            <cite data-i18n="review_2_author">Sylwia, Polska</cite>
+          </blockquote>
+          <blockquote>
+            <span data-i18n="review_3_text">„Cudowny duży ogród. Dużo miejsca dla dzieci oraz do odpoczynku.”</span>
+            <cite data-i18n="review_3_author">Ewelina, Polska</cite>
+          </blockquote>
+          <blockquote>
+            <span data-i18n="review_4_text">„Przestronny pokój 4-osobowy z balkonem. Duży ogród, dobra baza na wycieczki.”</span>
+            <cite data-i18n="review_4_author">Robert, Polska</cite>
+          </blockquote>
+          <blockquote>
+            <span data-i18n="review_5_text">„Na plus lokalizacja - blisko Kotelnicy, obiekt czysty, kuchnie dobrze wyposażone.”</span>
+            <cite data-i18n="review_5_author">Kamil, Polska</cite>
+          </blockquote>
+          <blockquote>
+            <span data-i18n="review_6_text">„We enjoyed our stay, the room was spacious and comfortable.”</span>
+            <cite data-i18n="review_6_author">Emilia, Polska</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="lokalizacja">
+      <div class="container location-wrap">
+        <div>
+          <h2 data-i18n="location_title">Doskonała lokalizacja</h2>
+          <ul class="location-points">
+            <li data-i18n="location_point_1">Adres: ul. Środkowa 242a, 34-405 Białka Tatrzańska, Polska</li>
+            <li data-i18n="location_point_2">Lokalizacja oceniona na 9,4/10, a pary oceniają ją na 9,6.</li>
+            <li data-i18n="location_point_3">W okolicy panują doskonałe warunki do narciarstwa, spacerów i rodzinnego wypoczynku.</li>
+          </ul>
+          <div class="location-actions">
+            <a class="btn btn-primary" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=ul.+%C5%9Arodkowa+242a%2C+34-405+Bia%C5%82ka+Tatrza%C5%84ska" data-i18n="location_btn">Otwórz w Google Maps</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener"
+               href="https://www.booking.com/Share-KzpwEc3" data-i18n="location_booking_btn">Zobacz na Booking.com</a>
+          </div>
+        </div>
+        <div class="map-card">
+          <div class="map-embed-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1123.7998869322894!2d20.102488024124174!3d49.39433357636652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4715f0bdfab72537%3A0x13dbb312da025374!2sHoliday%20House%20Zak!5e0!3m2!1sen!2spl!4v1771289631574!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <h3 data-i18n="nearby_title">Najbliższe miejsca</h3>
+          <ul>
+            <li data-i18n="nearby_1">Termy Bania – 1,1 km</li>
+            <li data-i18n="nearby_2">Zamek w Niedzicy – 21 km</li>
+            <li data-i18n="nearby_3">Dworzec PKP Zakopane – 23 km</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container contact-box">
+        <h2 data-i18n="contact_title">Zaplanuj pobyt w DOM WYPOCZYNKOWY ŻAK</h2>
+        <p data-i18n="contact_text">Szukasz komfortowego miejsca dla rodziny w Białce Tatrzańskiej? Skontaktuj się z nami i zapytaj o dostępne terminy.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:rezerwacja@domzak.pl">rezerwacja@domzak.pl</a>
+          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.booking.com/Share-KzpwEc3" data-i18n="contact_booking_btn">Zobacz na Booking.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p data-i18n="footer_copy">© 2026 DOM WYPOCZYNKOWY ŻAK</p>
+      <a href="#top" data-i18n="footer_top">Wróć na górę</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
