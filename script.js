@@ -2,6 +2,13 @@ const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 const galleryGrid = document.getElementById("galleryGrid");
 const galleryMoreButton = document.getElementById("galleryMoreBtn");
+const lightbox = document.getElementById("lightbox");
+const lightboxBackdrop = document.getElementById("lightboxBackdrop");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCounter = document.getElementById("lightboxCounter");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
 const pageTitle = document.getElementById("pageTitle");
 const metaDescription = document.getElementById("metaDescription");
 const languageButtons = document.querySelectorAll(".lang-btn");
@@ -169,7 +176,10 @@ const translations = {
     contact_booking_btn: "Zobacz na Booking.com",
     footer_copy: "© 2026 DOM WYPOCZYNKOWY ŻAK",
     footer_top: "Wróć na górę",
-    gallery_alt_prefix: "DOM WYPOCZYNKOWY ŻAK - zdjęcie"
+    gallery_alt_prefix: "DOM WYPOCZYNKOWY ŻAK - zdjęcie",
+    lightbox_close_aria: "Zamknij podgląd",
+    lightbox_prev_aria: "Poprzednie zdjęcie",
+    lightbox_next_aria: "Następne zdjęcie"
   },
   en: {
     page_title: "DOM WYPOCZYNKOWY ŻAK | Białka Tatrzańska",
@@ -245,12 +255,18 @@ const translations = {
     contact_booking_btn: "See on Booking.com",
     footer_copy: "© 2026 DOM WYPOCZYNKOWY ŻAK",
     footer_top: "Back to top",
-    gallery_alt_prefix: "DOM WYPOCZYNKOWY ŻAK - photo"
+    gallery_alt_prefix: "DOM WYPOCZYNKOWY ŻAK - photo",
+    lightbox_close_aria: "Close preview",
+    lightbox_prev_aria: "Previous image",
+    lightbox_next_aria: "Next image"
   }
 };
 
 let currentLanguage = "pl";
 let galleryExpanded = false;
+let lightboxIndex = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 
 if (menuToggle && mainNav) {
   menuToggle.addEventListener("click", () => {
@@ -353,6 +369,7 @@ const createGalleryItem = (fileName, index) => {
   const img = document.createElement("img");
   img.src = toPhotoSrc(fileName);
   img.alt = getGalleryAlt(index);
+  img.dataset.photoIndex = String(index);
   img.loading = "lazy";
   img.decoding = "async";
 
@@ -386,8 +403,95 @@ const updateGalleryAlts = () => {
   const galleryImages = document.querySelectorAll(".gallery-item img");
   galleryImages.forEach((image, index) => {
     image.alt = getGalleryAlt(index);
+    image.dataset.photoIndex = String(index);
   });
 };
+
+const showLightboxImage = (index) => {
+  if (!lightboxImage || !lightboxCounter || photos.length === 0) return;
+
+  const safeIndex = ((index % photos.length) + photos.length) % photos.length;
+  lightboxIndex = safeIndex;
+  lightboxImage.src = toPhotoSrc(photos[safeIndex]);
+  lightboxImage.alt = getGalleryAlt(safeIndex);
+  lightboxCounter.textContent = `${safeIndex + 1} / ${photos.length}`;
+};
+
+const openLightbox = (index) => {
+  if (!lightbox || !lightboxImage) return;
+
+  showLightboxImage(index);
+  lightbox.classList.add("open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+};
+
+const closeLightbox = () => {
+  if (!lightbox) return;
+
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+};
+
+const showNextImage = () => {
+  showLightboxImage(lightboxIndex + 1);
+};
+
+const showPreviousImage = () => {
+  showLightboxImage(lightboxIndex - 1);
+};
+
+if (galleryGrid) {
+  galleryGrid.addEventListener("click", (event) => {
+    const image = event.target.closest("img");
+    if (!image) return;
+
+    const imageIndex = Number(image.dataset.photoIndex);
+    if (!Number.isFinite(imageIndex)) return;
+
+    openLightbox(imageIndex);
+  });
+}
+
+if (lightboxBackdrop) {
+  lightboxBackdrop.addEventListener("click", closeLightbox);
+}
+
+if (lightboxClose) {
+  lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightboxPrev) {
+  lightboxPrev.addEventListener("click", showPreviousImage);
+}
+
+if (lightboxNext) {
+  lightboxNext.addEventListener("click", showNextImage);
+}
+
+document.addEventListener("keydown", (event) => {
+  if (!lightbox || !lightbox.classList.contains("open")) return;
+
+  if (event.key === "Escape") closeLightbox();
+  if (event.key === "ArrowLeft") showPreviousImage();
+  if (event.key === "ArrowRight") showNextImage();
+});
+
+if (lightboxImage) {
+  lightboxImage.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightboxImage.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0].screenX;
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < 40) return;
+    if (swipeDistance < 0) showNextImage();
+    if (swipeDistance > 0) showPreviousImage();
+  }, { passive: true });
+}
 
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {

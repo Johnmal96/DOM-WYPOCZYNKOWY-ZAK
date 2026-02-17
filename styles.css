@@ -364,6 +364,93 @@ blockquote,
   height: 220px;
   object-fit: cover;
   display: block;
+  cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+}
+
+.lightbox.open {
+  display: block;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.9);
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 96vw);
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lightboxImage {
+  max-width: 100%;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.lightbox-close,
+.lightbox-nav {
+  border: 0;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+}
+
+.lightbox-prev {
+  left: 0.5rem;
+}
+
+.lightbox-next {
+  right: 0.5rem;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background: rgba(15, 23, 42, 0.72);
+  border-radius: 999px;
+  padding: 0.32rem 0.65rem;
+  margin: 0;
+  font-weight: 600;
 }
 
 .reviews-grid {
@@ -567,6 +654,20 @@ blockquote cite {
 
   .map-embed-wrap iframe {
     height: 220px;
+  }
+
+  .lightbox-content {
+    width: min(1100px, 100vw);
+  }
+
+  #lightboxImage {
+    max-height: 80vh;
+  }
+
+  .lightbox-close,
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
   }
 }
 
