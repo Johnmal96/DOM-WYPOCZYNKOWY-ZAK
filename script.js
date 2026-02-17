@@ -2,6 +2,7 @@ const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 const galleryGrid = document.getElementById("galleryGrid");
 const galleryMoreButton = document.getElementById("galleryMoreBtn");
+const backToTopLink = document.querySelector('.footer-wrap a[href="#top"]');
 const lightbox = document.getElementById("lightbox");
 const lightboxBackdrop = document.getElementById("lightboxBackdrop");
 const lightboxImage = document.getElementById("lightboxImage");
@@ -508,6 +509,13 @@ if (galleryMoreButton) {
     galleryExpanded = true;
     renderGallery();
     updateGalleryAlts();
+  });
+}
+
+if (backToTopLink) {
+  backToTopLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
