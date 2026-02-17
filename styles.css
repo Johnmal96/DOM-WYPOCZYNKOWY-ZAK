@@ -271,18 +271,12 @@ blockquote,
 }
 
 .hero-mobile-logo {
-  display: block;
+  display: none;
   width: 100%;
   max-width: 100%;
   height: clamp(220px, 58vw, 420px);
   object-fit: contain;
   margin: 0.4rem 0 0.9rem;
-}
-
-@media (min-width: 901px) {
-  .hero-mobile-logo {
-    display: none;
-  }
 }
 
 .hero-card ul,
@@ -589,7 +583,7 @@ blockquote cite {
   }
 
   .hero-side-logo {
-    display: none;
+    display: none !important;
   }
 }
 
